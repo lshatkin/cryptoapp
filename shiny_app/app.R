@@ -40,9 +40,8 @@ run_calender_scraper <- function(){
 coin_description_df <- read.csv('~/Desktop/crypto/crypto_shiny/data/initial_coin_research.csv', stringsAsFactors=F)
 price_information <- read.csv('~/Desktop/crypto/crypto_shiny/data/price_information.csv', stringsAsFactors = F)
 coinCalender <- read.csv('~/Desktop/crypto/crypto_shiny/data/coinCalender.csv', stringsAsFactors = F)
-coinMarketCal <- read.csv('~/Desktop/crypto/crypto_shiny/data/coinCalender.csv', stringsAsFactors = F)
+coinMarketCal <- read.csv('~/Desktop/crypto/crypto_shiny/data/coinMarketCal.csv', stringsAsFactors = F)
 coindar <- read.csv('~/Desktop/crypto/crypto_shiny/data/coindar.csv', stringsAsFactors = F)
-
 
 
 ui <- fluidPage(
@@ -55,13 +54,13 @@ ui <- fluidPage(
         mainPanel(
             tabsetPanel(
                 tabPanel('General Description of Coin', 
-                        verbatimTextOutput('general'),
-                        verbatimTextOutput('price_info')),
+                        htmlOutput('general'),
+                        htmlOutput('price_info')),
                 tabPanel('Recent Events and Tweets', textOutput('test')),
                 tabPanel('Upcoming Events', 
-                    verbatimTextOutput('coinCalender'),
-                    verbatimTextOutput('coindar'),
-                    verbatimTextOutput('coinMarketCal'))
+                    htmlOutput('coinMarketCal'),
+                    htmlOutput('coindar'),                    
+                    htmlOutput('coinCalender'))
             )
         )
     )
@@ -74,7 +73,7 @@ server <- function(input, output) {
         input$coin_symbol
     })
 
-    output$price_info <- renderText({
+    output$price_info <- renderUI({
         if (input$coin_symbol == 'All'){
             'Coming soon...'
         }
@@ -83,19 +82,16 @@ server <- function(input, output) {
             str <- paste("Price BTC: ", info$price_btc)
             str1 <- paste("Price USD: ", info$price_usd)
             str2 <- paste("Percent Change 1h: ", info$percent_change_1h)
-            str3 <- paste("Percent Change 7d: ", info$percent_change_7d)
+            str3 <- paste("Percent Change 24h: ", info$percent_change_24h)
             str4 <- paste("24h Volume (USD): ", info$volume_usd_24h)
             str5 <- paste("Market Cap: ", info$market_cap_usd)
-            str6 <- paste("Max Supply: ", info$max_supply)
-            str7 <- paste("Available Supply: ", info$available_supply)
-            str8 <- paste("Total Supply: ", info$total_supply)
-            paste(str, str1, str2, str3,
-                    str4, str5, str6, str7,
-                    str8, sep = '\n')
+
+            HTML(paste(str, str1, str2, str3,
+                    str4, str5, sep = '<br/>'))
         }
     })
 
-    output$general <- renderText({
+    output$general <- renderUI({
 
         if (input$coin_symbol == 'All'){
             'Coming soon...'
@@ -118,12 +114,12 @@ server <- function(input, output) {
             str3 <- paste('Description: ', coin_info$description)
             str4 <- paste('Proof: ', proof)
             str5 <- paste('Exchanges to Trade on: ', exchanges)
-            paste(str, str2, str3, str4, str5, sep = '\n')
+            HTML(paste(str, str2, str3, str4, str5, sep = '<br/>'))
         }
 
     })
 
-    output$coinCalender <- renderText({
+    output$coinCalender <- renderUI({
         if (input$coin_symbol == 'All'){
             'Coming soon...'
         }
@@ -139,14 +135,14 @@ server <- function(input, output) {
             else{
                 str0 <- 'Information from coinCalender.info:'
                 cutoff <- '------------------------------------------'
-                all <- paste(str0, cutoff, sep = '\n')
+                all <- HTML(paste(str0, cutoff, sep = '<br/>'))
                 for (row in 1:nrow(events_1)){
                     str <- paste("Coin Name: ", events_1[row, 'coin_name'])
                     str2 <- paste("Coin Symbol: ", events_1[row, 'coin_symbol'])
                     str3 <- paste('Event Title: ', events_1[row, 'title'])
                     str4 <- paste('Start Date: ', events_1[row, 'start'])
                     str5 <- paste('Description: ', events_1[row,'description'])
-                    all <- paste(all, str, str2, str3, str4, str5, cutoff, sep = '\n')
+                    all <- HTML(paste(all, str, str2, str3, str4, str5, cutoff, sep = '<br/>'))
                 }
                 all
             }
@@ -155,7 +151,7 @@ server <- function(input, output) {
 
     })
 
-    output$coindar <- renderText({
+    output$coindar <- renderUI({
         if (input$coin_symbol == 'All'){
             'Coming soon...'
         }
@@ -171,14 +167,14 @@ server <- function(input, output) {
             else{
                 str0 <- 'Information from coindar.org:'
                 cutoff <- '------------------------------------------'
-                all <- paste(str0, cutoff, sep = '\n')
+                all <- HTML(paste(str0, cutoff, sep = '<br/>'))
                 for (row in 1:nrow(events)){
                     str <- paste("Coin Name: ", events[row,'coin_name'])
                     str2 <- paste("Coin Symbol: ", events[row, 'coin_symbol'])
                     str3 <- paste('Publication Date: ', events[row, 'publication_date'])
                     str4 <- paste('Start Date: ', events[row,'start'])
                     str5 <- paste('Description: ', events[row,'description'])
-                    all <- paste(all, str, str2, str3, str4, str5, cutoff, sep = '\n')
+                    all <- HTML(paste(all, str, str2, str3, str4, str5, cutoff, sep = '<br/>'))
                 }
                 all
             }
@@ -186,7 +182,7 @@ server <- function(input, output) {
 
     })
 
-    output$coinMarketCal <- renderText({
+    output$coinMarketCal <- renderUI({
         if (input$coin_symbol == 'All'){
             'Coming soon...'
         }
@@ -202,7 +198,7 @@ server <- function(input, output) {
             else{
                 str0 <- 'Information from coinMarketCal.com:'
                 cutoff <- '------------------------------------------'
-                all <- paste(str0, cutoff, sep = '\n')
+                all <- HTML(paste(str0, cutoff, sep = '<br/>'))
                 for (row in 1:nrow(events_2)){
                     str <- paste("Coin Name: ", events_2[row, 'coin_name'])
                     str2 <- paste("Coin Symbol: ", events_2[row, 'coin_symbol'])
@@ -211,7 +207,7 @@ server <- function(input, output) {
                     str5 <- paste('Start Date: ', events_2[row,'start'])
                     str6 <- paste('Description: ', events_2[row, 'description'])
                     str7 <- paste('Validation Percentage: ', str(events_2[row,'validation_percentage']))
-                    all <- paste(all, str, str2, str3, str4, str6, str7, cutoff, sep = '\n')
+                    all <- HTML(paste(all, str, str2, str3, str4, str5, str6, str7, cutoff, sep = '<br/>'))
                 }
                 all
             }
@@ -222,7 +218,3 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
-
-
-
-#hi
