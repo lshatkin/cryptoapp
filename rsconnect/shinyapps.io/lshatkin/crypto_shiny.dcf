@@ -1,0 +1,9 @@
+name: crypto_shiny
+title:
+account: lshatkin
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 266937
+bundleId: 1200224
+url: https://lshatkin.shinyapps.io/crypto_shiny/
+when: 1517363539.7419
