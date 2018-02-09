@@ -5,8 +5,8 @@ account: viceroyholdings
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 266968
-bundleId: 1200264
+bundleId: 1209329
 url: https://viceroyholdings.shinyapps.io/research_infrastructure/
-when: 1517365849.89172
+when: 1517889304.85
 asMultiple: FALSE
 asStatic: FALSE

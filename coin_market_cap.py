@@ -30,8 +30,17 @@ def format_entry(entry):
         market_cap_usd = 'Unknown'
     else:
         market_cap_usd = '$' + "{:,}".format(float(entry['market_cap_usd']))
+    if not entry['available_supply']:
+        available_supply = 'Unknown'
+    else:
+        available_supply = "{:,}".format(float(entry['available_supply']))
+    if not entry['max_supply']:
+        max_supply = 'Unknown'
+    else:
+        max_supply = "{:,}".format(float(entry['max_supply']))
     data_entry = [symbol, name, price_btc, price_usd, percent_change_1h,
-                    percent_change_24h, volume_usd_24h, market_cap_usd]
+                    percent_change_24h, volume_usd_24h, market_cap_usd,
+                    available_supply, max_supply]
     return data_entry
 
 
@@ -39,7 +48,8 @@ def coinMarketCap():
     df = pd.DataFrame(columns = ['symbol', 'name', 'price_btc',
                                     'price_usd', 'percent_change_1h',
                                     'percent_change_24h', 'volume_usd_24h',
-                                    'market_cap_usd'])
+                                    'market_cap_usd', 'available_supply',
+                                    'max_supply'])
                                    
 
     response = requests.get('https://api.coinmarketcap.com/v1/ticker/?limit=0')
