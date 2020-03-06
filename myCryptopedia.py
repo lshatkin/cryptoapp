@@ -17,7 +17,7 @@ def create_array():
 if __name__ == '__main__':
     all_links = create_array()
     link_df = pd.DataFrame(data = all_links, columns = ['link'])
-    link_df.to_csv('~/Desktop/crypto/research_infrastructure/myCryptopedia.csv')
+    link_df.to_csv('./data/myCryptopedia.csv')
 
 
 

@@ -43,7 +43,7 @@ def coincalenderapi():
     parser = MyHTMLParser()
     parser.feed(response_json['html'])
     df = pd.DataFrame(columns = ['coin_symbol', 'coin_name', 'title','start','description'], data = parser.events)
-    df.to_csv('~/Desktop/crypto/research_infrastructure/coinCalender.csv')
+    df.to_csv('./data/coinCalender.csv')
 
 # Get events for specific year, month and day:
 # https://coindar.org/api/v1/events?Year=2017&Month=10
@@ -62,6 +62,7 @@ def coindarapi():
     # Get all events for the next 10 months
     for count in range(10):
         response = requests.get('https://coindar.org/api/v1/events?Year=' + str(this_year) + '&Month=' + str(this_month))
+        print(response.json())
         response_json = response.json()
         for entry in response_json:
             publication_date = entry['public_date']
@@ -77,36 +78,47 @@ def coindarapi():
             this_month += 1
     df=pd.DataFrame(columns = ['coin_symbol', 'coin_name', 'description','publication_date',
                                 'start'], data = data_array)
-    df.to_csv('~/Desktop/crypto/research_infrastructure/coindar.csv')
+    df.to_csv('./data/coindar.csv')
 
+
+# api key: 27eg1E3o0P3liG2hqumJB9RLlVXFIzcR3HLt3VWc
 def coinmarketcalapi():
+
+    url = "https://developers.coinmarketcal.com/v1/events"
+    payload = ""
+    headers = {
+        'x-api-key': "27eg1E3o0P3liG2hqumJB9RLlVXFIzcR3HLt3VWc",
+        'Accept-Encoding': "deflate, gzip",
+        'Accept': "application/json"
+    }
+    
     data_array = []
     count = 0
     page = 1
     while page > 0:
         print(page)
-        print(count)
-        response = requests.get('https://coinmarketcal.com/api/events?page=%d&max=250'%(page))
+        querystring = {"page":page, "max":75}
+        response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
         parsed = json.loads(response.content.decode('latin1'))
         page += 1
-        for entry in parsed:
+        if parsed['body'] is None:
+            break
+        for entry in parsed['body']:
             count += 1
             try:
-                publication_date = entry['created_date']
-                publication_date = publication_date[0:publication_date.find('T')]
                 start_date = entry['date_event']
                 start_date = start_date[0:start_date.find('T')]
-                data_entry = {'coin_symbol': entry['coin_symbol'], 'description' : entry['description'],
-                                'publication_date' : publication_date, 'start' : start_date,
-                                'title' : entry['title'], 'coin_name' : entry['coin_name']}
+                coin = entry['coins'][0]
+                data_entry = {'coin_symbol': coin['symbol'],
+                                'start' : start_date,
+                                'title' : entry['title']['en'], 'coin_name' : coin['name'], 'source' :entry['source']}
                 data_array.append(data_entry)                
             # Means its gotten all the events
             except:
                 page = -1
                 break
-    df=pd.DataFrame(columns = ['coin_symbol', 'coin_name', 'description','publication_date',
-                            'start', 'title'], data = data_array)
-    df.to_csv('~/Desktop/crypto/research_infrastructure/coinMarketCal.csv')
+    df=pd.DataFrame(columns = ['coin_symbol', 'start', 'title', 'coin_name', 'source'], data = data_array)
+    df.to_csv('./data/coinMarketCal.csv')
 
 
 
@@ -116,8 +128,8 @@ if __name__ == '__main__':
     # print('Finished Part 1...')
     # coindarapi()
     # print('Finished Part 2...')
-    coinmarketcalapi()
-    print('Finished Part 3...')
+    # coinmarketcalapi()
+    # print('Finished Part 3...')
 
 
 

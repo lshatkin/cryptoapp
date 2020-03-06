@@ -92,7 +92,7 @@ if __name__ == '__main__':
     # Get basic information about coin
     coin_df = create_basic_info_df()
     coin_df = get_basic_information(coin_list, coin_df)
-    coin_df.to_csv('~/Desktop/crypto/research_infrastructure/initial_coin_research.csv')
+    coin_df.to_csv('./data/initial_coin_research.csv')
     # Get twitter and reddit links for coins
     # social_df = create_social_df()
     # get_social_information(coin_list, social_df)

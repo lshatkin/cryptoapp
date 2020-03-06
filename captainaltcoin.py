@@ -8,7 +8,7 @@ import unittest, time, re
 
 
 def get_html_total():
-    driver = webdriver.Chrome('/Users/lloyd16/Desktop/crypto/research_infrastructure/chromedriver.exe')
+    driver = webdriver.Chrome()
     driver.implicitly_wait(30)
     base_url = 'https://captainaltcoin.com/altcoins/'
     driver.get(base_url)
@@ -29,6 +29,8 @@ def get_links(data):
     soup = BeautifulSoup(data, 'html.parser')
     all_links = []
     for link in soup.find_all('a'):
+        if link.get('href') is None:
+            continue
         if ((link not in all_links) and (link.get('href').startswith('https://captainaltcoin.com'))):
             all_links.append(link.get('href'))
     return all_links
@@ -37,7 +39,7 @@ if __name__ == "__main__":
     data = get_html_total()
     all_links = get_links(data)
     links_df = pd.DataFrame(data= all_links, columns = ['link'])
-    links_df.to_csv('~/Desktop/crypto/research_infrastructure/captainAltCoin.csv')
+    links_df.to_csv('./data/captainAltCoin.csv')
 
 
 

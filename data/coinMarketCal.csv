@@ -1,0 +1,50 @@
+,coin_symbol,start,title,coin_name,source
+0,AE,2020-03-06,CoinAgenda 2020,Aeternity,https://coinmarketcal.com/event/coinagenda-2020-29163
+1,MAN,2020-03-06,Telegram AMA,Matrix AI Network,https://coinmarketcal.com/event/telegram-ama-31617
+2,XEM,2020-03-06,Innovation Day,NEM,https://coinmarketcal.com/event/innovation-day-31615
+3,COS,2020-03-06,Korean Coinone AMA,Contentos,https://coinmarketcal.com/event/korean-coinone-ama-31603
+4,PRE,2020-03-06,AMA with Presearch,Presearch,https://coinmarketcal.com/event/ama-with-presearch-31633
+5,3DC,2020-03-06,Telegram AMA,3DCoin,https://coinmarketcal.com/event/telegram-ama-31641
+6,VRS,2020-03-06,Telegram AMA,Veros,https://coinmarketcal.com/event/telegram-ama-31613
+7,VRS,2020-03-06,VRS 3.0 IEO Launch,Veros,https://coinmarketcal.com/event/vrs-3-0-ieo-launch-31527
+8,MIOTA,2020-03-06,Seed Migration Ends,IOTA,https://coinmarketcal.com/event/seed-migration-ends-31498
+9,ADA,2020-03-07,Tokyo Meetup,Cardano,https://coinmarketcal.com/event/tokyo-meetup-31501
+10,BTC,2020-03-07,MIT Bitcoin Expo,Bitcoin,https://coinmarketcal.com/event/mit-bitcoin-expo-31531
+11,WICC,2020-03-07,Michigan Meetup,WaykiChain,https://coinmarketcal.com/event/michigan-meetup-31275
+12,WAVES,2020-03-07,French Developer Tutorial,Waves,https://coinmarketcal.com/event/french-developer-tutorial-31523
+13,EDC,2020-03-07,Lima Educational Event,EDC Blockchain,https://coinmarketcal.com/event/lima-educational-event-31622
+14,INNBCL,2020-03-07,BigONE Listing,InnovativeBioresearchClassic,https://coinmarketcal.com/event/bigone-listing-31479
+15,SHR,2020-03-08,ShareRing Mainnet Launch,ShareToken,https://coinmarketcal.com/event/sharering-mainnet-launch-31278
+16,NWC,2020-03-08,Holder/Staking Event,Newscrypto,https://coinmarketcal.com/event/holder-staking-event-31588
+17,KEY,2020-03-09,Mobile Wallet MVP,Selfkey,https://coinmarketcal.com/event/mobile-wallet-mvp-31593
+18,DLT,2020-03-09,Crypto Assets Conference,Agrello,https://coinmarketcal.com/event/crypto-assets-conference-31605
+19,AZ,2020-03-09,Weekly AZ Coin Burn,Azbit,https://coinmarketcal.com/event/weekly-az-coin-burn-31535
+20,BEST,2020-03-10,CryptoCompare Summit,Bitpanda Ecosystem Token,https://coinmarketcal.com/event/cryptocompare-summit-30381
+21,NRG,2020-03-10,Energi Gen 3 Launch,Energi,https://coinmarketcal.com/event/energi-gen-3-launch-31582
+22,TNS,2020-03-10,Burn Begins,Transcodium,https://coinmarketcal.com/event/burn-begins-31550
+23,ZEN,2020-03-10,CoinEx Withdrawals Open,Horizen,https://coinmarketcal.com/event/coinex-withdrawals-open-31180
+24,LTO,2020-03-10,FillTheDoc Launch,LTO Network,https://coinmarketcal.com/event/fillthedoc-launch-31518
+25,LTO,2020-03-10,FillTheDoc Launch,LTO Network,https://coinmarketcal.com/event/fillthedoc-launch-31524
+26,IOST,2020-03-10,Report Deadline,IOST,https://coinmarketcal.com/event/report-deadline-31554
+27,VRS,2020-03-10,Dobitrade Listing,Veros,https://coinmarketcal.com/event/dobitrade-listing-31610
+28,HT,2020-03-10,Monthly Livestream AMA,Huobi Token,https://coinmarketcal.com/event/monthly-livestream-ama-31635
+29,EDC,2020-03-10,Panama Education Event,EDC Blockchain,https://coinmarketcal.com/event/panama-education-event-31653
+30,WAVES,2020-03-10,YouTube Dev Tutorial,Waves,https://coinmarketcal.com/event/youtube-dev-tutorial-31643
+31,BTT,2020-03-11,Airdrop Snapshot,BitTorrent,https://coinmarketcal.com/event/airdrop-snapshot-31072
+32,CRYPTO,2020-03-11,Blockchain Africa Conf.,General Event,https://coinmarketcal.com/event/blockchain-africa-conf-26997
+33,CRYPTO,2020-03-11,ISC2020 Edinburgh (UK),General Event,https://coinmarketcal.com/event/isc2020-edinburgh-uk-30152
+34,CRO,2020-03-11,London Meetup,Crypto.com Coin,https://coinmarketcal.com/event/london-meetup-31219
+35,ANT,2020-03-11,AGP-155 Vote Begins,Aragon,https://coinmarketcal.com/event/agp-155-vote-begins-31620
+36,WAVES,2020-03-11,YouTube Dev Tutorial,Waves,https://coinmarketcal.com/event/youtube-dev-tutorial-31656
+37,ANT,2020-03-11,Rocket Chat Shutdown,Aragon,https://coinmarketcal.com/event/rocket-chat-shutdown-31646
+38,WAVES,2020-03-11,French Developer Tutorial,Waves,https://coinmarketcal.com/event/french-developer-tutorial-31537
+39,ZEN,2020-03-12,Weekly Insider #31,Horizen,https://coinmarketcal.com/event/weekly-insider-31-30783
+40,B2B,2020-03-12,Blockchain Summit Latam,B2BX,https://coinmarketcal.com/event/blockchain-summit-latam-31564
+41,ETN,2020-03-12,Cryptonites Tribe Event,Electroneum,https://coinmarketcal.com/event/cryptonites-tribe-event-31349
+42,GCR,2020-03-12,Cryptrox Token Swap End,Global Currency Reserve,https://coinmarketcal.com/event/cryptrox-token-swap-end-31057
+43,CHSB,2020-03-12,London Meetup,SwissBorg,https://coinmarketcal.com/event/london-meetup-31009
+44,AE,2020-03-12,Lyon Meetup,Aeternity,https://coinmarketcal.com/event/lyon-meetup-31621
+45,PI,2020-03-13,Mainnet Upgrade,PCHAIN,https://coinmarketcal.com/event/mainnet-upgrade-30021
+46,CRYPTO,2020-03-13,SC Blockchain Conference,General Event,https://coinmarketcal.com/event/sc-blockchain-conference-30825
+47,VEX,2020-03-13,March 2020 AMA,Vexanium,https://coinmarketcal.com/event/march-2020-ama-31429
+48,CRO,2020-03-13,Telegram AMA,Crypto.com Coin,https://coinmarketcal.com/event/telegram-ama-31631

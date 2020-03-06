@@ -22,19 +22,19 @@ def get_num_pages(driver):
 def add_to_link_array(data, all_links):
     soup = BeautifulSoup(data, 'html.parser')
     for link in soup.find_all('a'):
-        if ((link.get('rel') is not None) and (link.get('rel')[0] == 'bookmark')):
-            all_links.append(link.get('href'))
+        url = link.get('href')
+        if url is not None and "what" in url.lower() and "is" in url.lower():
+            all_links.add(url)
 
 
 
 def get_html_total(base_url):
-    driver = webdriver.Chrome('/Users/lloyd16/Desktop/crypto/research_infrastructure/chromedriver.exe')
+    driver = webdriver.Chrome()
     driver.implicitly_wait(30)
-    # base_url = 'https://coincentral.com/category/altcoins/'
     driver.get(base_url)
     max_page = get_num_pages(driver)
     page_number = 1
-    all_links = []
+    all_links = set()
     while True:
         html_source = driver.page_source
         data = html_source.encode('utf-8')
@@ -57,9 +57,10 @@ if __name__ == "__main__":
     names = ['coinCentral', 'blockonomi']
     count = 0
     for base_url in urls:
+        print(base_url)
         all_links = get_html_total(base_url)
         links_df = pd.DataFrame(data= all_links, columns = ['link'])
-        links_df.to_csv('~/Desktop/crypto/research_infrastructure/%s.csv' % names[count])
+        links_df.to_csv('./data/%s.csv' % names[count])
         count += 1
 
 
